@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="mi-plugin"
+    version="1.0.0">
+    <name>Cordova Plugin Template</name>
+    <description></description>
+    <license>MIT</license>
+    <keywords></keywords>
+    <repo>https://github.com/thecouk/ionic-cordova-plugin-template.git</repo>
+    
+
+    <!-- android -->
+    <platform name="android">
+      <js-module src="www/plugin.js" name="plugin">
+        <runs/>
+
+        <!-- Este es el nombre por el cual se accedera el plugin -->
+        <clobbers target="MiPlugin" />
+      </js-module>
+      <config-file target="res/xml/config.xml" parent="/*">
+        <feature name="MiPlugin">
+          <param name="android-package" value="com.example.MiPlugin" />
+          <param name="onload" value="true" />
+        </feature>
+      </config-file>
+
+      <source-file src="src/android/com/example/MiPlugin.java" target-dir="src/com/example/" />
+    </platform>
+
+    <!-- ios -->
+    <platform name="ios">
+        <js-module src="www/plugin.js" name="plugin">
+            <runs/>
+            <clobbers target="MiPlugin" />
+        </js-module>
+        <config-file target="config.xml" parent="/*">
+            <feature name="MiPlugin">
+                <param name="ios-package" value="MiPlugin" onload="true" />
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/MiPlugin.h" />
+        <source-file src="src/ios/MiPlugin.m" />
+    </platform>
+</plugin>

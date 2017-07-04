@@ -1,0 +1,12 @@
+{
+  "name": "cordova-plugin-plantilla",
+  "version": "1.0.0",
+  "cordova": {
+    "id": "cordova-plugin-plantilla",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "description": "Plantilla base para crear un Plugin personalizado"
+}

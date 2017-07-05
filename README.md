@@ -185,7 +185,7 @@ public class MiPlugin extends CordovaPlugin {
 
 ```
 
-Fuente de referencia:
+## Fuente de referencia:
 Este ejemplo es una adaptación del tutorial:
 [How to write Cordova Plugins](https://medium.com/ionic-and-the-mobile-web/how-to-write-cordova-plugins-864e40025f2)
 

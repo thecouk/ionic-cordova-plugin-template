@@ -81,6 +81,8 @@ Posteriormente puedes ir al directorio **platforms** donde encontrarás la carpe
 
 **LISTO** Si todo va bien verás una alerta **"Hola todo el... Mundo!!!"**, basicamente lo que estas viendo en esa alerta es la mezcla de lo hibrido con lo nativo. De aquí en más ya puedes agregar la complejidad que desees a tu aplicación.
 
+![Pantalla Plugin](https://github.com/thecouk/ObservablesIonic/blob/master/src/assets/img-ejemplos/listaPersonasMeGusta.png?raw=true)
+
 **NOTA:** En tu proyecto podrás observar que dentro de la carpeta de **plugins** encontrarás la carpeta **mi-plugin** que a su vez contiene los archivos de definición y las carpetas que nos interesa entender y modificar **www/** y **src/** en la primera encontraremos el código Javascript que pone en uso la libreria de Cordova y nos permite definir las funciones que pondremos a disposición para nuestra aplicación.
 
 ```
@@ -100,7 +102,7 @@ module.exports = MiPlugin;
 
 En la segunda carpeta encontraremos en el caso de iOS dos archivos: **MiPlugin.h** y **MiPlugin.m** los cuales como te imaginaras son los archivos donde definiremos las funciones nativas que recibiran parametros y devolveran una respusta. En el caso de Android encontrarás una estructura de carpetas **"Es necesario respetarla"** ejemplo: **android/com/example/MiPlugin.java** donde de igual manera encontrarás las funciones para cuando ejecutes en Android.
 
-##MiPlugin.h
+## MiPlugin.h
 ```
 #import <Cordova/CDVPlugin.h>
 
@@ -113,7 +115,7 @@ En la segunda carpeta encontraremos en el caso de iOS dos archivos: **MiPlugin.h
 @end
 ```
 
-##MiPlugin.m
+## MiPlugin.m
 ```
 #import "MiPlugin.h"
 
@@ -141,7 +143,7 @@ En la segunda carpeta encontraremos en el caso de iOS dos archivos: **MiPlugin.h
 
 ```
 
-##MiPlugin.java
+## MiPlugin.java
 ```
 package com.example;
 
@@ -184,5 +186,10 @@ public class MiPlugin extends CordovaPlugin {
 ```
 
 Fuente de referencia:
+Este ejemplo es una adaptación del tutorial:
+[How to write Cordova Plugins](https://medium.com/ionic-and-the-mobile-web/how-to-write-cordova-plugins-864e40025f2)
 
-https://medium.com/ionic-and-the-mobile-web/how-to-write-cordova-plugins-864e40025f2
+
+## Autor
+
+* **@TheCouk** 

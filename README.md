@@ -25,9 +25,17 @@ Posicionarse en el directorio de proyectos de Ionic en mi caso: `cd Documents/de
 ## Paso 2:
 
 Crear un proyecto de Ionic: `ionic start nombreProyecto blank`
-Seleccionar proyecto: `cd nombreProyecto`
+Seleccionar proyecto: `cd nombreProyecto/`
 
-# Implementación en Ionic:
+## Paso 3:
+
+Instalar Plugin: `ionic cordova plugin add https://github.com/thecouk/ionic-cordova-plugin-template.git`
+
+## Paso 4:
+
+Modificar el archivo **home.ts** de la siguiente manera:
+
+# Archivo home.ts:
 
 ```
 import { Component } from '@angular/core';
@@ -64,6 +72,33 @@ export class HomePage {
 }
 
 ```
+
+## Paso 5:
+
+Ejecutar a iOS: `ionic cordova run ios --prod` o para Android: `ionic cordova run android --prod`.
+
+Posteriormente puedes ir al directorio **platforms** donde encontrarás la carpeta de cada sistema operativo y podrás abrirlo en Xcode o Android Studio y posteriormente correr la aplicación.
+
+**LISTO** Si todo va bien verás una alerta "Hola todo el... Mundo!!!", basicamente lo que estas viendo en esa alerta es la mezcla de lo hibrido con lo nativo. De aquí en más ya puedes agregar la complejidad que desees a tu aplicación.
+
+**NOTA:** En tu proyecto podrás observar que dentro de la carpeta de **plugins** encontrarás la carpeta **mi-plugin** que a su vez contiene los archivos de definición y las carpetas que nos interesa entender y modificar **www/** y **src/** en la primera encontraremos el código Javascript que pone en uso la libreria de Cordova y nos permite definir las funciones que pondremos a disposición para nuestra aplicación.
+
+```
+var exec = require('cordova/exec');
+
+var PLUGIN_NAME = 'MiPlugin';
+
+var MiPlugin = {
+  saludo: function (name, successCallback, errorCallback){
+        exec(successCallback, errorCallback, PLUGIN_NAME, "saludar", [name]);
+  }
+};
+
+module.exports = MiPlugin;
+
+```
+
+En la segunda carpeta encontraremos en el caso de iOS dos archivos: **MiPlugin.h** y **MiPlugin.m** los cuales como te imaginaras son los archivos donde definiremos las funciones nativas que recibiran parametros y devolveran una respusta. En el caso de Android encontrarás una estructura de carpetas **"Es necesario respetarla"** ejemplo: **android/com/example/MiPlugin.java** donde de igual manera encontrarás las funciones para cuando ejecutes en Android.
 
 Fuente de referencia:
 

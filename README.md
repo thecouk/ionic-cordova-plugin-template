@@ -35,7 +35,7 @@ Instalar Plugin: `ionic cordova plugin add https://github.com/thecouk/ionic-cord
 
 Modificar el archivo **home.ts** de la siguiente manera:
 
-# Archivo home.ts:
+## home.ts:
 
 ```
 import { Component } from '@angular/core';

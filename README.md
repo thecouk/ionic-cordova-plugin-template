@@ -81,7 +81,7 @@ Posteriormente puedes ir al directorio **platforms** donde encontrarás la carpe
 
 **LISTO** Si todo va bien verás una alerta **"Hola todo el... Mundo!!!"**, basicamente lo que estas viendo en esa alerta es la mezcla de lo hibrido con lo nativo. De aquí en más ya puedes agregar la complejidad que desees a tu aplicación.
 
-![Pantalla Plugin](https://github.com/thecouk/ObservablesIonic/blob/master/src/assets/img-ejemplos/listaPersonasMeGusta.png?raw=true)
+![Pantalla Plugin](https://github.com/thecouk/ionic-cordova-plugin-template/blob/master/HolaMundo.png?raw=true)
 
 **NOTA:** En tu proyecto podrás observar que dentro de la carpeta de **plugins** encontrarás la carpeta **mi-plugin** que a su vez contiene los archivos de definición y las carpetas que nos interesa entender y modificar **www/** y **src/** en la primera encontraremos el código Javascript que pone en uso la libreria de Cordova y nos permite definir las funciones que pondremos a disposición para nuestra aplicación.
 

@@ -77,9 +77,9 @@ export class HomePage {
 
 Ejecutar a iOS: `ionic cordova run ios --prod` o para Android: `ionic cordova run android --prod`.
 
-Posteriormente puedes ir al directorio **platforms** donde encontrarás la carpeta de cada sistema operativo y podrás abrirlo en Xcode o Android Studio y posteriormente correr la aplicación.
+Posteriormente puedes ir al directorio **platforms** donde encontrarás la carpeta de cada sistema operativo y podrás abrirlo en Xcode o Android Studio compilar y correr la aplicación.
 
-**LISTO** Si todo va bien verás una alerta "Hola todo el... Mundo!!!", basicamente lo que estas viendo en esa alerta es la mezcla de lo hibrido con lo nativo. De aquí en más ya puedes agregar la complejidad que desees a tu aplicación.
+**LISTO** Si todo va bien verás una alerta **"Hola todo el... Mundo!!!"**, basicamente lo que estas viendo en esa alerta es la mezcla de lo hibrido con lo nativo. De aquí en más ya puedes agregar la complejidad que desees a tu aplicación.
 
 **NOTA:** En tu proyecto podrás observar que dentro de la carpeta de **plugins** encontrarás la carpeta **mi-plugin** que a su vez contiene los archivos de definición y las carpetas que nos interesa entender y modificar **www/** y **src/** en la primera encontraremos el código Javascript que pone en uso la libreria de Cordova y nos permite definir las funciones que pondremos a disposición para nuestra aplicación.
 
@@ -99,6 +99,89 @@ module.exports = MiPlugin;
 ```
 
 En la segunda carpeta encontraremos en el caso de iOS dos archivos: **MiPlugin.h** y **MiPlugin.m** los cuales como te imaginaras son los archivos donde definiremos las funciones nativas que recibiran parametros y devolveran una respusta. En el caso de Android encontrarás una estructura de carpetas **"Es necesario respetarla"** ejemplo: **android/com/example/MiPlugin.java** donde de igual manera encontrarás las funciones para cuando ejecutes en Android.
+
+##MiPlugin.h
+```
+#import <Cordova/CDVPlugin.h>
+
+@interface MiPlugin : CDVPlugin {
+}
+
+// Encabezados de las funciones del plugin
+- (void) saludar:(CDVInvokedUrlCommand*)command;
+
+@end
+```
+
+##MiPlugin.m
+```
+#import "MiPlugin.h"
+
+#import <Cordova/CDVAvailability.h>
+
+@implementation MiPlugin
+
+- (void)pluginInitialize {
+}
+
+- (void)saludar:(CDVInvokedUrlCommand*)command
+{
+
+    NSString* name = [[command arguments] objectAtIndex:0];
+    NSString* msg = [NSString stringWithFormat: @"Hola todo el...  %@", name];
+
+    CDVPluginResult* result = [CDVPluginResult
+                               resultWithStatus:CDVCommandStatus_OK
+                               messageAsString:msg];
+
+    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+}
+
+@end
+
+```
+
+##MiPlugin.java
+```
+package com.example;
+
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaInterface;
+import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.CordovaWebView;
+import org.apache.cordova.PluginResult;
+import org.apache.cordova.PluginResult.Status;
+import org.json.JSONObject;
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import android.util.Log;
+
+import java.util.Date;
+
+public class MiPlugin extends CordovaPlugin {
+  private static final String TAG = "MiPlugin";
+
+  public void initialize(CordovaInterface cordova, CordovaWebView webView) {
+    super.initialize(cordova, webView);
+
+    Log.d(TAG, "Inicializando MiPlugin");
+  }
+
+  public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
+    if(action.equals("saludar")) {
+      // An example of returning data back to the web layer
+       String phrase = args.getString(0);
+      // Echo back the first argument      
+      final PluginResult result = new PluginResult(PluginResult.Status.OK, "Hola todo el..."+phrase);
+      callbackContext.sendPluginResult(result);
+    }
+    return true;
+  }
+
+}
+
+```
 
 Fuente de referencia:
 

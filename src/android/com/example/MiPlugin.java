@@ -30,7 +30,7 @@ public class MiPlugin extends CordovaPlugin {
       // An example of returning data back to the web layer
        String phrase = args.getString(0);
       // Echo back the first argument      
-      final PluginResult result = new PluginResult(PluginResult.Status.OK, (phrase.toString());
+      final PluginResult result = new PluginResult(PluginResult.Status.OK, "Hola todo el... "+phrase);
       callbackContext.sendPluginResult(result);
     }
     return true;

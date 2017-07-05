@@ -16,7 +16,11 @@ En resumen, construimos un plugin de Cordova cuando queremos hacer algo nativo q
 
 # Construcción de nuestro propio Plugin:
 
-Frameworks como Ionic cuentan con una libreria extensa de herramientas nativas en las cuales posiblemente encontrarás lo que buscas [IonicFramework](https://ionicframework.com/docs/native/), pero ¿cómo hacer uno propio? Bueno Cordova habilita una documentación para este fin: [Plugin Development Guide](https://cordova.apache.org/docs/en/7.x/guide/hybrid/plugins/index.html), sin embargo despues de mucho buscar y probar diferentes alternativas me guié finalmente por esta página: [How to write Cordova Plugins](https://medium.com/ionic-and-the-mobile-web/how-to-write-cordova-plugins-864e40025f2) la cúal se basa en una plantilla ya creada para clonar e instalar en nuestro proyecto, con el fin de entender y documentar un poco más me decidi a en base a dicha plantilla crear una propia.
+Frameworks como Ionic cuentan con una libreria extensa de herramientas nativas en las cuales posiblemente encontrarás lo que buscas [IonicFramework](https://ionicframework.com/docs/native/), pero ¿cómo hacer uno propio? Bueno Cordova habilita una documentación para este fin: [Plugin Development Guide](https://cordova.apache.org/docs/en/7.x/guide/hybrid/plugins/index.html), sin embargo despues de mucho buscar y probar diferentes alternativas me guié finalmente por esta página: [How to write Cordova Plugins](https://medium.com/ionic-and-the-mobile-web/how-to-write-cordova-plugins-864e40025f2) la cúal se basa en una plantilla ya creada por el equipo de IONIC-TEAM [ionic-team/cordova-plugin-template](https://github.com/ionic-team/cordova-plugin-template) para clonar e instalar en nuestro proyecto, con el fin de entender y documentar un poco más, me decidi a en base a dicha plantilla crear una propia.
+
+* Paso 1:
+
+Poscionarse en el directorio de proyectos de Ionic en mi caso: cd Documents/desarrollo/proyectos/ionic/...
 
 # Implementación en Ionic:
 
